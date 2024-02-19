@@ -4,11 +4,13 @@ import "fmt"
 
 type gasEngine struct {
 	// fields
-	mpg     uint8
-	gallons uint8
+	mpg       uint8
+	gallons   uint8
+	ownerInfo owner
 }
 
 type owner struct {
+	name string
 }
 
 func main() {
