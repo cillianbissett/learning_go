@@ -34,5 +34,6 @@ func dbCall(i int) {
 	m.Lock()
 	results = append(results, dbData[i])
 	//get rid of lock to allow next guy in line to append
+	m.Unlock()
 	wg.Done()
 }
