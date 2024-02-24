@@ -1,7 +1,19 @@
 package main
 
+import "fmt"
+
 func main() {
+	// can hold a single value - unbuffered channel
 	var myChannel = make(chan int)
-	// testing sonarcloud
-	var my_Channel = make(chan int, 5)
+	go process(myChannel)
+	for i := range myChannel {
+		fmt.Println("Received: ", i)
+	}
+}
+
+func process(c chan int) {
+	defer close(c)
+	for i := 0; i < 10; i++ {
+		c <- i
+	}
 }
