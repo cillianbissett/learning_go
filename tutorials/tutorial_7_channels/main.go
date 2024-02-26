@@ -5,6 +5,7 @@ import "fmt"
 func main() {
 	// can hold a single value - unbuffered channel
 	var myChannel = make(chan int)
+	var my_channel_other = make(chan int)
 	go process(myChannel)
 	for i := range myChannel {
 		fmt.Println("Received: ", i)
